@@ -1,0 +1,3 @@
+[submodule "soundverse-fe"]
+	path = soundverse-fe
+	url = git@github-jopedroliveira:subvisual/soundverse-fe.git
