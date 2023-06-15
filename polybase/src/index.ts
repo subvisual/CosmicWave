@@ -1,5 +1,6 @@
-import { getSchema } from "./schema";
-
-console.log(getSchema());
+import { getPolybaseConnection } from "./connection";
 
 console.log(process.argv[2]);
+
+const conn = getPolybaseConnection();
+console.log(conn);
