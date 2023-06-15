@@ -1,13 +1,6 @@
-import assert from "assert";
-import { SigningKey } from "ethers";
+import { getStreamerPublicKey } from "./config";
 
-export default function getSchema() {
-  assert(process.env.STREAMER_PRIVATE_KEY, "STREAMER_PRIVATE_KEY is not set");
-
-  const key = new SigningKey(process.env.STREAMER_PRIVATE_KEY);
-
-  const publicKey = "0x" + key.publicKey.slice(4);
-
+export function getSchema() {
   return `
 collection Streamer {
   id: string;
@@ -21,7 +14,7 @@ collection Streamer {
       throw error('You must sign the tx to create a stream');
     }
 
-    if (ctx.publicKey.toHex() != "${publicKey}") {
+    if (ctx.publicKey.toHex() != "${getStreamerPublicKey()}") {
       throw error("You're not the our resident DJ");
     }
 
