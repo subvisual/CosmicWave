@@ -17,7 +17,11 @@ async function main() {
     console.log(collection.id);
   });
 
-  return db.collection<Streamer>(`${namespace}/Streamer`).create();
+  const { data: streamer } = await db
+    .collection<Streamer>(`${namespace}/Streamer`)
+    .create();
+
+  return streamer;
 }
 
 main().then(console.log).catch(console.error);
