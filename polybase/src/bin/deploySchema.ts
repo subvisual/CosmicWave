@@ -1,4 +1,5 @@
 import assert from "assert";
+import { Streamer } from "../collections/streamer";
 import { getPolybaseConnection } from "../connection";
 import { getSchema } from "../schema";
 
@@ -8,11 +9,15 @@ const db = getPolybaseConnection();
 const schema = getSchema();
 const namespace = process.argv[2];
 
-db.applySchema(schema, namespace)
-  .then((collections) => {
-    console.log(`Collections created under ${namespace}:`);
-    collections.forEach((collection) => {
-      console.log(collection.id);
-    });
-  })
-  .catch(console.error);
+async function main() {
+  const collections = await db.applySchema(schema, namespace);
+
+  console.log(`Collections created under ${namespace}:`);
+  collections.forEach((collection) => {
+    console.log(collection.id);
+  });
+
+  return db.collection<Streamer>(`${namespace}/Streamer`).create();
+}
+
+main().then(console.log).catch(console.error);
