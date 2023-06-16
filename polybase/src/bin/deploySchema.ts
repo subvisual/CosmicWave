@@ -21,7 +21,9 @@ async function main() {
     .collection<Streamer>(`${namespace}/Streamer`)
     .create();
 
-  return streamer;
+  console.log(`Streamer created:`, streamer);
 }
 
-main().then(console.log).catch(console.error);
+main()
+  .then(() => console.log("Done"))
+  .catch(console.error);
