@@ -15,7 +15,7 @@ collection Streamer {
     }
 
     if (ctx.publicKey.toHex() != "${getStreamerPublicKey()}") {
-      throw error("You're not the our resident DJ");
+      throw error("You're not the resident DJ");
     }
 
     this.id = ctx.publicKey.toHex();
