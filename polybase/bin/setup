@@ -1,0 +1,22 @@
+#! /bin/bash
+
+echo
+echo "Installing dependencies..."
+yarn install
+
+echo
+echo "Building..."
+yarn build
+
+echo
+echo "Setting up environment..."
+if [ ! -f .envrc ]
+then
+  cp .envrc.sample .envrc
+  echo
+  echo "A new .envrc file has been created. Please fill in the required values."
+  echo "Once you're done, run 'source .envrc' to apply the changes."
+fi
+
+echo
+echo "Setting up is done 👌"
