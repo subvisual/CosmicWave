@@ -59,6 +59,8 @@ collection Song {
 collection Playlist {
   id: string;
   songs: Song[];
+
+  @delegate
   owner: Streamer;
 
   constructor(id: string, songs: Song[], owner: Streamer) {
@@ -73,6 +75,11 @@ collection Playlist {
     this.id = id;
     this.songs = songs;
     this.owner = owner;
+  }
+  
+  @call(owner)
+  setSongs(songs: Song[]) {
+    this.songs = songs;
   }
 }
 
