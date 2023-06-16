@@ -1,1 +1,1 @@
-export PRIVATE_KEY=YourPrivateKey
+export STREAMER_PRIVATE_KEY=YourPrivateKey
