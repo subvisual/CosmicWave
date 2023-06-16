@@ -4,8 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "postinstall": "yarn build",
     "deploySchema": "node ./dist/bin/deploySchema.js"
   },
   "dependencies": {
