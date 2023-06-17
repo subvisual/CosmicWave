@@ -1,3 +1,6 @@
 [submodule "soundverse-fe"]
 	path = soundverse-fe
 	url = git@github.com:subvisual/soundverse-fe.git
+[submodule "CosmicWave-server"]
+	path = CosmicWave-server
+	url = git@github.com:subvisual/CosmicWave-server.git
