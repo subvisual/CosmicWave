@@ -4,3 +4,6 @@
 [submodule "CosmicWave-server"]
 	path = CosmicWave-server
 	url = git@github.com:subvisual/CosmicWave-server.git
+[submodule "CosmicWave-fe"]
+	path = CosmicWave-fe
+	url = git@github.com:subvisual/CosmicWave-fe.git
